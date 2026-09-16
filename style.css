@@ -475,6 +475,14 @@ html.dark .contact-icon svg {
     word-break: break-word;
     overflow-wrap: break-word;
 }
+.contact-value a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact-value a:hover {
+    text-decoration: underline;
+}
 
 footer {
     text-align: center;
