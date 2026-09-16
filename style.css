@@ -472,6 +472,8 @@ html.dark .contact-icon svg {
 .contact-value {
     font-weight: 500;
     margin-top: 2px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 footer {
