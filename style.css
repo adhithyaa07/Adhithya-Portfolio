@@ -440,12 +440,12 @@ html.dark .expertise-icon svg {
     padding: 36px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 28px;
+    gap: 18px;
 }
 
 .contact-item {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
 }
 
