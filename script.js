@@ -1,24 +1,59 @@
-const toggleBtn = document.getElementById('theme-toggle');
-const moonIcon = document.getElementById('icon-moon');
-const sunIcon = document.getElementById('icon-sun');
-const root = document.documentElement;
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton =
+        document.getElementById("theme-toggle");
 
-// On load: respect a saved preference, otherwise respect the OS setting
-const saved = localStorage.getItem('theme');
-const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const moonIcon =
+        document.getElementById("icon-moon");
 
-if (saved === 'dark' || (!saved && prefersDark)) {
-    root.classList.add('dark');
-    moonIcon.style.display = 'none';
-    sunIcon.style.display = 'block';
-}
+    const sunIcon =
+        document.getElementById("icon-sun");
 
-toggleBtn.addEventListener('click', () => {
-    root.classList.toggle('dark');
-    const isDark = root.classList.contains('dark');
+    const root = document.documentElement;
 
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    if (!toggleButton || !moonIcon || !sunIcon) {
+        console.error("Dark-mode elements were not found.");
+        return;
+    }
 
-    moonIcon.style.display = isDark ? 'none' : 'block';
-    sunIcon.style.display = isDark ? 'block' : 'none';
+    const savedTheme =
+        localStorage.getItem("theme");
+
+    const deviceUsesDarkMode =
+        window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
+
+    function updateIcons() {
+        const darkModeEnabled =
+            root.classList.contains("dark");
+
+        moonIcon.style.display =
+            darkModeEnabled ? "none" : "block";
+
+        sunIcon.style.display =
+            darkModeEnabled ? "block" : "none";
+    }
+
+    if (
+        savedTheme === "dark" ||
+        (!savedTheme && deviceUsesDarkMode)
+    ) {
+        root.classList.add("dark");
+    }
+
+    updateIcons();
+
+    toggleButton.addEventListener("click", () => {
+        root.classList.toggle("dark");
+
+        const darkModeEnabled =
+            root.classList.contains("dark");
+
+        localStorage.setItem(
+            "theme",
+            darkModeEnabled ? "dark" : "light"
+        );
+
+        updateIcons();
+    });
 });
