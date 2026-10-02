@@ -354,6 +354,7 @@ h2 {
 .gradient-green { background: linear-gradient(135deg, #34d399, #6ee7b7); }
 .gradient-yellow{ background: linear-gradient(135deg, #f5b833, #ffd76a); }
 .gradient-cyan  { background: linear-gradient(135deg, #22b8cf, #66d9e8); }
+.gradient-purple{ background: linear-gradient(135deg, #6554e8, #8b5cf6); }
 
 .project-body {
     padding: 24px 28px 28px;
@@ -369,6 +370,7 @@ h2 {
 .tag-red { color: #ef4444; }
 .tag-green { color: #10b981; }
 .tag-yellow { color: #eab308; }
+.tag-purple { color: #7c3aed; }
 
 .project-date {
     color: var(--text-muted);
@@ -394,6 +396,36 @@ h2 {
     font-size: 0.8rem;
     padding: 6px 14px;
     border-radius: 999px;
+}
+
+.project-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 22px;
+}
+
+.project-actions a {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1px solid var(--card-border);
+    border-radius: 10px;
+    background: var(--pill-bg);
+    color: var(--text-primary);
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.86rem;
+    font-weight: 600;
+    transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.project-actions a:first-child {
+    background: #6554e8;
+    border-color: #6554e8;
+    color: #ffffff;
+}
+
+.project-actions a:hover {
+    transform: translateY(-2px);
 }
 
 /* ---------- Expertise ---------- */
